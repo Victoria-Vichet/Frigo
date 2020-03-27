@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Frigo</title>
+    <link href="style.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <h1 id="titre">Mon frigo</h1>
+
+    <h2>Contenu du frigo</h2>
+    <p>
+      <input type="button" name="contenu" id="contenu" value="Afficher">
+    </p>
+    <p>
+      <ul id="contenuFrigo">
+      </ul>
+    </p>
+
+    <h2>Ajouter un nouveau produit</h2>
+    <form action="index.html" method="POST">
+      <input type="text" id="produitAjout" placeholder="Mousse au chocolat">
+      <input type="number" id="quantiteAjout" min="1" max="15" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+      <!-- pour rester en bonne santé pendant ce confinement, on peut considérer qu'il n'y aura pas plus de 15 produits identiques-->
+      <input type="button" id="ajouter" value="Ajouter !">
+    </form>
+
+
+  	<script src="frigo.js"></script>
+  </body>
+</html>
