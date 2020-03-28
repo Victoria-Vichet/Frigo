@@ -27,6 +27,7 @@ function listerFrigo(event){
 let ajoutProduit = document.getElementById("ajouter");
 ajoutProduit.addEventListener("click", ajouterProduit);
 
+
 function ajouterProduit(event){
   let produitNom = document.getElementById("produitAjout").value;
   let produitQte = document.getElementById("quantiteAjout").value;
@@ -40,14 +41,11 @@ function ajouterProduit(event){
   }
   fetch(url, fetchOptions)
     .then( (response) => {
-      if (true) {
-        return response.json()
-      }else{
-        throw new Error('Le produit existe déjà');
-      }
+      return response.json()
     })
     .then( (dataJSON) => {
-
+      let affichage = produitQte + " " + produitNom + " ajouté.e.s dans le frigo !";
+      document.getElementById("produitAjoutValide").innerHTML = affichage;
     })
     .catch( (error) => console.log(error))
 }
