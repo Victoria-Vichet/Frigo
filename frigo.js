@@ -44,7 +44,7 @@ function ajouterProduit(event){
       return response.json()
     })
     .then( (dataJSON) => {
-      let affichage = produitQte + " " + produitNom + " ajouté.e.s dans le frigo !";
+      let affichage = produitQte + " " + produitNom + ".s ajouté.e.s dans le frigo !";
       document.getElementById("produitAjoutValide").innerHTML = affichage;
     })
     .catch( (error) => console.log(error))
