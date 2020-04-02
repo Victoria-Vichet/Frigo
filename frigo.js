@@ -73,3 +73,69 @@ function chercherProduit(event){
       console.log(error)
     })
 }
+/* Ici */
+/*Affiche la liste pour sélectionner puis ajouter 1 à ce produit */
+let afficheContenu = document.getElementById("produitHabAjout");
+afficheContenu.addEventListener("mouseover", listerProduits);
+
+function listerProduits(event){
+  let fetchOptions = { method: 'GET' };
+  fetch(url, fetchOptions)
+    .then( (response) => {
+      return response.json()
+    })
+    .then( (dataJSON) => {
+      let listeFinal = document.getElementById("produitHabAjout");
+      let resul =""
+      for (let v of dataJSON) {
+        resul = resul + "<option value =" + v.id + " id=" + v.nom + ">" + v.nom + "</option>";
+      }
+      listeFinal.innerHTML = resul;
+    })
+    .catch( (error) => {
+      console.log(error)
+    })
+}
+
+let ajoutUn = document.getElementById("ajoutUnProduit");
+ajoutUn.addEventListener("click", ajouterUnExistant);
+let produitConcerne = new Object();
+
+function ajouterUnExistant(event){
+  let produitNom = document.getElementById("produitHabAjout").value;
+  let url2 = url + "/" + produitConcerne.id;
+  //récup infos produit
+  let fetchOptions1 = {method: 'GET'};
+  fetch(url2, fetchOptions1)
+    .then( (response) => {
+      return response.json()
+    })
+    .then( (dataJSON) => {
+      produitConcerne.id =dataJSON.id;
+      produitConcerne.nom =dataJSON.nom;
+      produitConcerne.qte = dataJSON.qte;
+    })
+    .catch( (error) => {
+      console.log(error)
+    })
+
+console.log(produitConcerne);
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    const fetchOptions = {
+     method: 'PUT',
+     headers: myHeaders,
+     body: JSON.stringify({"id":produitConcerne.id, "nom": produitConcerne.nom,"qte":produitConcerne.qte+1})
+    }
+    fetch(url2, fetchOptions)
+      .then( (response) => {
+        return response.json()
+      })
+      .then( (dataJSON) => {
+        let affichage = "1 " + dataJSON.nom + " ajouté.e dans le frigo !";
+        console.log(dataJSON.nom);
+        document.getElementById("produitHabAjoutValide").innerHTML = affichage;
+      })
+      .catch( (error) => console.log(error))
+/* jusque là */
+}
