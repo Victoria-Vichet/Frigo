@@ -39,6 +39,7 @@ function ajouterProduit(event){
    headers: myHeaders,
    body: JSON.stringify(produit)
   }
+  console.log(fetchOptions);
   fetch(url, fetchOptions)
     .then( (response) => {
       return response.json()
@@ -88,7 +89,7 @@ function listerProduits(event){
       let listeFinal = document.getElementById("produitHabAjout");
       let resul =""
       for (let v of dataJSON) {
-        resul = resul + "<option value =" + v.id + " id=" + v.nom + ">" + v.nom + "</option>";
+        resul = resul + "<option value=" + v.id + ">" + v.nom + "</option>";
       }
       listeFinal.innerHTML = resul;
     })
@@ -101,35 +102,40 @@ let ajoutUn = document.getElementById("ajoutUnProduit");
 ajoutUn.addEventListener("click", ajouterUnExistant);
 let produitConcerne = new Object();
 
-function ajouterUnExistant(event){
-  let produitNom = document.getElementById("produitHabAjout").value;
-  let url2 = url + "/" + produitConcerne.id;
-  //récup infos produit
-  let fetchOptions1 = {method: 'GET'};
-  fetch(url2, fetchOptions1)
-    .then( (response) => {
-      return response.json()
-    })
-    .then( (dataJSON) => {
-      produitConcerne.id =dataJSON.id;
-      produitConcerne.nom =dataJSON.nom;
-      produitConcerne.qte = dataJSON.qte;
-    })
-    .catch( (error) => {
-      console.log(error)
-    })
+async function ajouterUnExistant(event){
+    let produitNom = document.getElementById("produitHabAjout").value;
+    console.log(produitNom);
+    let url2 = url + "/" + produitNom;
+    console.log(url2);
+    //récup infos produit
+    let fetchOptions1 = {method: 'GET'};
+    await fetch(url2, fetchOptions1)
+        .then( (response) => {
+            return response.json()
+        })
+        .then( (dataJSON) => {
+            produitConcerne.id =dataJSON.id;
+            produitConcerne.nom =dataJSON.nom;
+            produitConcerne.qte = dataJSON.qte;
+        })
+        .catch( (error) => {
+            console.log(error)
+        })
 
-console.log(produitConcerne);
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+    let produitFinal = {"nom": produitConcerne.nom,"qte":produitConcerne.qte + 1};
+
+    console.log(produitFinal);
+
     const fetchOptions = {
      method: 'PUT',
      headers: myHeaders,
-     body: JSON.stringify({"id":produitConcerne.id, "nom": produitConcerne.nom,"qte":produitConcerne.qte+1})
+     body: JSON.stringify(produitFinal)
     }
     fetch(url2, fetchOptions)
       .then( (response) => {
-        return response.json()
+        return response.json();
       })
       .then( (dataJSON) => {
         let affichage = "1 " + dataJSON.nom + " ajouté.e dans le frigo !";
