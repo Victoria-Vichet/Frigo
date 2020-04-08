@@ -74,40 +74,35 @@ function chercherProduit(event){
       console.log(error)
     })
 }
-/* Ici */
-/*Affiche la liste pour sélectionner puis ajouter 1 à ce produit */
-let afficheContenu = document.getElementById("produitHabAjout");
-afficheContenu.addEventListener("mouseover", listerProduits);
 
-function listerProduits(event){
-  let fetchOptions = { method: 'GET' };
-  fetch(url, fetchOptions)
-    .then( (response) => {
-      return response.json()
-    })
-    .then( (dataJSON) => {
-      let listeFinal = document.getElementById("produitHabAjout");
-      let resul =""
-      for (let v of dataJSON) {
-        resul = resul + "<option value=" + v.id + ">" + v.nom + "</option>";
-      }
-      listeFinal.innerHTML = resul;
-    })
-    .catch( (error) => {
-      console.log(error)
-    })
-}
+/*Affiche la liste pour sélectionner*/
+let fetchOptions = { method: 'GET' };
+fetch(url, fetchOptions)
+  .then( (response) => {
+    return response.json()
+  })
+  .then( (dataJSON) => {
+    let resul =""
+    for (let v of dataJSON) {
+      resul = resul + "<option value=" + v.id + ">" + v.nom + "</option>";
+    }
+    document.getElementById("produitHabAjout").innerHTML = resul;
+    document.getElementById("produitHabSupp").innerHTML = resul;
+  })
+  .catch( (error) => {
+    console.log(error)
+  })
 
+/*Ajoute 1 à un produit*/
 let ajoutUn = document.getElementById("ajoutUnProduit");
 ajoutUn.addEventListener("click", ajouterUnExistant);
 let produitConcerne = new Object();
 
 async function ajouterUnExistant(event){
     let produitNom = document.getElementById("produitHabAjout").value;
-    console.log(produitNom);
     let url2 = url + "/" + produitNom;
-    console.log(url2);
-    //récup infos produit
+
+    //récup infos produit selctionne
     let fetchOptions1 = {method: 'GET'};
     await fetch(url2, fetchOptions1)
         .then( (response) => {
@@ -123,25 +118,26 @@ async function ajouterUnExistant(event){
         })
 
     let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    let produitFinal = {"nom": produitConcerne.nom,"qte":produitConcerne.qte + 1};
-
-    console.log(produitFinal);
+    myHeaders.append("Content-Type", "application/json",);
+    let produitFinal = {
+        id: produitConcerne.id,
+        nom: produitConcerne.nom,
+        qte: produitConcerne.qte + 1
+    };
 
     const fetchOptions = {
-     method: 'PUT',
-     headers: myHeaders,
-     body: JSON.stringify(produitFinal)
-    }
-    fetch(url2, fetchOptions)
-      .then( (response) => {
-        return response.json();
-      })
-      .then( (dataJSON) => {
-        let affichage = "1 " + dataJSON.nom + " ajouté.e dans le frigo !";
-        console.log(dataJSON.nom);
-        document.getElementById("produitHabAjoutValide").innerHTML = affichage;
-      })
-      .catch( (error) => console.log(error))
-/* jusque là */
+        method: 'PUT',
+        headers: myHeaders,
+        body: JSON.stringify(produitFinal)
+    };
+
+    fetch(url, fetchOptions)
+        .then( (response) => {
+            return response.json()
+        })
+        .then( (dataJSON) => {
+            let affichage = "1 " + produitConcerne.nom + " ajouté.e dans le frigo !";
+            document.getElementById("produitHabAjoutValide").innerHTML = affichage;
+        })
+        .catch( (error) => console.log(error))
 }
