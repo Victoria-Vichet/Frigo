@@ -1,4 +1,6 @@
 const url ="http://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigos/26/produits";
+let myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json",);
 
 /* Lister le contenu du frigo */
 let contenuFrigo = document.getElementById("contenu");
@@ -32,8 +34,6 @@ function ajouterProduit(event){
   let produitNom = document.getElementById("produitAjout").value;
   let produitQte = document.getElementById("quantiteAjout").value;
   let produit = {"nom": produitNom, "qte":produitQte};
-  let myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
   const fetchOptions = {
    method: 'POST',
    headers: myHeaders,
@@ -94,12 +94,6 @@ fetch(url, fetchOptions)
     console.log(error)
   })
 
-
-
-let produitConcerne = new Object();
-let val;
-let produitId;
-
 /*Ajoute 1 à un produit*/
 let ajoutUn = document.getElementById("ajoutUnProduit");
 ajoutUn.addEventListener("click", ajouterUnProduit);
@@ -108,6 +102,9 @@ ajoutUn.addEventListener("click", ajouterUnProduit);
 let suppUn = document.getElementById("suppUnProduit");
 suppUn.addEventListener("click", enleverUnProduit);
 
+let produitConcerne = new Object();
+let val;
+let produitId;
 
 function ajouterUnProduit(event) {
   val = "plus";
@@ -123,7 +120,7 @@ function enleverUnProduit(event) {
 
 async function ajouterUnExistant(){
     let url2 = url + "/" + produitId;
-
+console.log(produitId);
     //récup infos du produit selctionné
     let fetchOptions1 = {method: 'GET'};
     await fetch(url2, fetchOptions1)
@@ -139,8 +136,6 @@ async function ajouterUnExistant(){
             console.log(error)
         })
 
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json",);
     let produitFinal = {
         id: produitConcerne.id,
         nom: produitConcerne.nom,
@@ -176,3 +171,26 @@ async function ajouterUnExistant(){
         })
         .catch( (error) => console.log(error))
 }
+
+/*Supprime totalement un produit*/
+let suppTotal = document.getElementById("suppUnProduitTotal");
+suppTotal.addEventListener("click", suppTotalProduit);
+
+
+function suppTotalProduit(){
+    produitSuppId = document.getElementById("produitHabSuppTotal").value;
+    let url3 = url + "/" + produitSuppId;
+    const fetchOptions = {
+        method: 'DELETE',
+    };
+
+    fetch(url3, fetchOptions)
+        .then( (response) => {
+            return response.json()
+        })
+        .then( (dataJSON) => {
+          let affichage = document.getElementById("produitHabSuppTotal").value + " supprimé le frigo !";
+          document.getElementById("produitHabSuppTotalValide").innerHTML = affichage;
+        })
+        .catch( (error) => console.log(error))
+    }
