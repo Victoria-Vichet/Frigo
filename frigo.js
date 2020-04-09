@@ -88,21 +88,43 @@ fetch(url, fetchOptions)
     }
     document.getElementById("produitHabAjout").innerHTML = resul;
     document.getElementById("produitHabSupp").innerHTML = resul;
+    document.getElementById("produitHabSuppTotal").innerHTML = resul;
   })
   .catch( (error) => {
     console.log(error)
   })
 
+
+
+let produitConcerne = new Object();
+let val;
+let produitId;
+
 /*Ajoute 1 à un produit*/
 let ajoutUn = document.getElementById("ajoutUnProduit");
-ajoutUn.addEventListener("click", ajouterUnExistant);
-let produitConcerne = new Object();
+ajoutUn.addEventListener("click", ajouterUnProduit);
 
-async function ajouterUnExistant(event){
-    let produitNom = document.getElementById("produitHabAjout").value;
-    let url2 = url + "/" + produitNom;
+/*Supprime 1 à un produit*/
+let suppUn = document.getElementById("suppUnProduit");
+suppUn.addEventListener("click", enleverUnProduit);
 
-    //récup infos produit selctionne
+
+function ajouterUnProduit(event) {
+  val = "plus";
+  produitId = document.getElementById("produitHabAjout").value;
+  ajouterUnExistant();
+}
+
+function enleverUnProduit(event) {
+  val = "moins";
+  produitId = document.getElementById("produitHabSupp").value;
+  ajouterUnExistant();
+}
+
+async function ajouterUnExistant(){
+    let url2 = url + "/" + produitId;
+
+    //récup infos du produit selctionné
     let fetchOptions1 = {method: 'GET'};
     await fetch(url2, fetchOptions1)
         .then( (response) => {
@@ -122,8 +144,15 @@ async function ajouterUnExistant(event){
     let produitFinal = {
         id: produitConcerne.id,
         nom: produitConcerne.nom,
-        qte: produitConcerne.qte + 1
+        qte: produitConcerne.qte
     };
+
+    if (Object.is(val,"plus")) {
+      produitFinal.qte = produitFinal.qte + 1;
+    }
+    if (Object.is(val,"moins")) {
+      produitFinal.qte = produitFinal.qte - 1;
+    }
 
     const fetchOptions = {
         method: 'PUT',
@@ -136,8 +165,14 @@ async function ajouterUnExistant(event){
             return response.json()
         })
         .then( (dataJSON) => {
+          if (Object.is(val,"plus")) {
             let affichage = "1 " + produitConcerne.nom + " ajouté.e dans le frigo !";
             document.getElementById("produitHabAjoutValide").innerHTML = affichage;
+          }
+          if (Object.is(val,"moins")) {
+            let affichage = "1 " + produitConcerne.nom + " supprimé.e dans le frigo !";
+            document.getElementById("produitHabSuppValide").innerHTML = affichage;
+          }
         })
         .catch( (error) => console.log(error))
 }
