@@ -6,50 +6,50 @@
     <link href="style.css" rel="stylesheet"/>
   </head>
   <body>
-    <h1 id="titre">iFrigo</h1>
     <img src="images/iFrigo.png" alt="iFrigo" class="iFrigoimg">
+    <h1 id="titre">iFrigo</h1>
+
 
     <div class="contenuDuFrigo">
       <h2>Contenu du frigo</h2>
       <p>
         <input type="button" name="contenu" id="contenu" value="Afficher">
       </p>
-      <p>
         <ul id="contenuFrigo">
         </ul>
-      </p>
     </div>
 
-    <h2>Ajouter un nouveau produit</h2>
-    <form id="ajouter" >
-      <input type="text" id="produitAjout" placeholder="Mousse au chocolat">
-      <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-      <input type="submit" value="Ajouter !">
-    </form>
-    <p id="produitAjoutValide"></p>
+    <div class="ajouterNouveauProduit">
+      <h2>Faire de nouvelles courses</h2>
+      <form id="ajouter" >
+        <input type="text" id="produitAjout" placeholder="Mousse au chocolat">
+        <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+        <input type="submit" value="Ajouter !">
+      </form>
+      <p id="produitAjoutValide"></p>
+    </div>
 
-    <h2>Rechercher un produit</h2>
-    <p>
+    <div class="rechercherProduits">
+      <h2>Qu'est ce qu'il y a dans mon frigo ?</h2>
       <form id="rechercher">
         <input type="text" id="produitRecherche" placeholder="Lait" required>
         <input type="submit" value="Chercher...">
       </form>
-    </p>
-    <p>
       <ul id="produitExistant">
       </ul>
-    </p>
+    </div>
 
-    <!-- Ajouter 1 à un produit -->
-    <h2>Faire ses courses habituelles</h2>
-    <p>
-      <select id="produitHabAjout" name="produitsHabituels">
-      </select>
-      <input type="button" id="ajoutUnProduit" value="Se faire livrer dans le frigo...">
-    </p>
-    <p id="produitHabAjoutValide"></p>
+    <div class="ajouterUnAUnProduit">
+      <h2>Faire ses courses habituelles</h2>
+      <p>
+        <select id="produitHabAjout" name="produitsHabituels">
+        </select>
+        <input type="button" id="ajoutUnProduit" value="Se faire livrer dans le frigo...">
+      </p>
+      <p id="produitHabAjoutValide"></p>
+    </div>
 
-    <!-- Supprimer 1 à un produit -->
+    <div class="supprimerUnAUnProduit">
     <h2>Petite faim</h2>
     <p>
       <select id="produitHabSupp" name="produitsHabituels">
@@ -57,8 +57,9 @@
       <input type="button" id="suppUnProduit" value="Manger un produit du frigo...">
     </p>
     <p id="produitHabSuppValide"></p>
+    </div>
 
-    <!-- Supprimer totalement un produit -->
+    <div class="supprimerUnProduit">
     <h2>Grande faim</h2>
     <p>
       <select id="produitHabSuppTotal" name="produitsHabituels">
@@ -66,7 +67,9 @@
       <input type="button" id="suppUnProduitTotal" value="Dévaliser un produit du frigo...">
     </p>
     <p id="produitHabSuppTotalValide"></p>
+    </div>
 
+    <footer>Technologies Web - ISIS - Victoria Vichet - FIE 3</footer>
   	<script src="frigo.js"></script>
   </body>
 </html>
