@@ -1,11 +1,22 @@
-body { background: #FFFACD; }
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url('font/sanfranciscodisplay-regular-webfont.woff') format('woff');
+}
+
+body { background: #FFFACD;
+  font-family: "San Francisco", "Ubuntu", "Arial";
+ }
 
 .iFrigoimg{
   width: 2%;
   height: 2%;
-
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1{
   color: #A52A2A;
+  text-align: center;
 }
