@@ -27,10 +27,11 @@ function listerFrigo(event){
 
 /* Ajouter un nouveau produit au frigo */
 let ajoutProduit = document.getElementById("ajouter");
-ajoutProduit.addEventListener("click", ajouterProduit);
+ajoutProduit.addEventListener("submit", ajouterProduit);
 
 
 function ajouterProduit(event){
+  event.preventDefault();
   let produitNom = document.getElementById("produitAjout").value;
   let produitQte = document.getElementById("quantiteAjout").value;
   let produit = {"nom": produitNom, "qte":produitQte};
@@ -53,9 +54,10 @@ function ajouterProduit(event){
 
 /*Rechercher un produit dans le frigo */
 let chercheProduit = document.getElementById("rechercher");
-chercheProduit.addEventListener("click", chercherProduit);
+chercheProduit.addEventListener("submit", chercherProduit);
 
 function chercherProduit(event){
+  event.preventDefault();
   let urlRecherche = url + '?search=' + document.getElementById("produitRecherche").value;
   let fetchOptions = {method: 'GET'};
   fetch(urlRecherche, fetchOptions)

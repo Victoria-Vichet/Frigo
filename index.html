@@ -6,7 +6,8 @@
     <link href="style.css" rel="stylesheet"/>
   </head>
   <body>
-    <h1 id="titre">Mon frigo</h1>
+    <h1 id="titre">iFrigo</h1>
+    <img src="images/iFrigo.png" alt="iFrigo" class="iFrigoimg">
 
     <div class="contenuDuFrigo">
       <h2>Contenu du frigo</h2>
@@ -20,17 +21,19 @@
     </div>
 
     <h2>Ajouter un nouveau produit</h2>
-    <form action="index.html" method="POST">
+    <form id="ajouter" >
       <input type="text" id="produitAjout" placeholder="Mousse au chocolat">
       <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-      <input type="button" id="ajouter" value="Ajouter !">
+      <input type="submit" value="Ajouter !">
     </form>
     <p id="produitAjoutValide"></p>
 
     <h2>Rechercher un produit</h2>
     <p>
-      <input type="text" id="produitRecherche" placeholder="Lait">
-      <input type="button" id="rechercher" value="Chercher...">
+      <form id="rechercher">
+        <input type="text" id="produitRecherche" placeholder="Lait" required>
+        <input type="submit" value="Chercher...">
+      </form>
     </p>
     <p>
       <ul id="produitExistant">
