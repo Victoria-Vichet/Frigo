@@ -102,6 +102,7 @@ ajoutUn.addEventListener("click", ajouterUnProduit);
 let suppUn = document.getElementById("suppUnProduit");
 suppUn.addEventListener("click", enleverUnProduit);
 
+/*Modifie quantité d'un produit*/
 let produitConcerne = new Object();
 let val;
 let produitId;
@@ -120,7 +121,6 @@ function enleverUnProduit(event) {
 
 async function ajouterUnExistant(){
     let url2 = url + "/" + produitId;
-console.log(produitId);
     //récup infos du produit selctionné
     let fetchOptions1 = {method: 'GET'};
     await fetch(url2, fetchOptions1)
@@ -146,6 +146,9 @@ console.log(produitId);
       produitFinal.qte = produitFinal.qte + 1;
     }
     if (Object.is(val,"moins")) {
+      if (produitFinal.qte === 1) {
+        console.log("je repère");
+      }
       produitFinal.qte = produitFinal.qte - 1;
     }
 
@@ -189,7 +192,7 @@ function suppTotalProduit(){
             return response.json()
         })
         .then( (dataJSON) => {
-          let affichage = document.getElementById("produitHabSuppTotal").value + " supprimé le frigo !";
+          let affichage = " Produit supprimé du frigo !";
           document.getElementById("produitHabSuppTotalValide").innerHTML = affichage;
         })
         .catch( (error) => console.log(error))
