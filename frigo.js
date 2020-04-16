@@ -16,7 +16,7 @@ function listerFrigo(event){
       let listeFinale = document.getElementById("contenuFrigo");
       let res ="";
       for (let p of dataJSON) {
-        res = res + "<li>" + p.nom + "</li>";
+        res = res + "<li>" + p.nom + " [" + p.qte + "] </li>";
       }
       listeFinale.innerHTML = res;
     })
@@ -203,5 +203,5 @@ function suppTotalProduit(){
 document.getElementById("contenuF").addEventListener("click", fermerFrigo);
 
 function fermerFrigo(event){
-    document.getElementById("contenuFrigo").innerHTML = "";    
+    document.getElementById("contenuFrigo").innerHTML = "";
 }
