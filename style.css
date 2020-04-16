@@ -16,8 +16,9 @@
 
 /* General */
 body{
-  background: #FFFACD;
+  background: #B1EEDA;
   position: relative;
+  padding-left: 8px;
  }
 
 body,option,select,input{font-family: "ComicNeue", "Arial";}
@@ -41,22 +42,32 @@ body,option,select,input{font-family: "ComicNeue", "Arial";}
 footer{
   font-family: "Reillex";
   width: 100%;
- text-align: center;
- color:#F08080;
- background-color:#26627c;
+  text-align: center;
+  color:#F08080;
+  background-color:#26627c;
 }
 
 h1{
-  color: white;
+  color: #B1EEDA;
   letter-spacing: -2px;
   font-style: normal;
 }
 
-table{border-style: solid;}
+p, form{margin-left: 8px}
 th{font-family: "ComicNeue";}
 td{text-align: center;}
-
 ul{list-style-type: circle;}
+
+div:not(.header):not(.supprimerUnProduit){
+  border-bottom: dashed;
+  border-spacing: 5;
+  border-width: 3px;
+}
+
+table{
+  border: solid 10px;
+  border-radius: 5px 5px 5px 5px;
+}
 
 .contenuDuFrigo{padding-top: 6%;}
 .choix{margin-top: 3%;}
