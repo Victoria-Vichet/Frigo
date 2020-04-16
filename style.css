@@ -4,8 +4,13 @@
 }
 
 @font-face {
-  font-family: "ComicNeue";
+  font-family: "ComicNeueL";
   src: url(font/ComicNeue-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "ComicNeue";
+  src: url(font/ComicNeue-Regular.ttf) format('truetype');
 }
 
 body{
@@ -33,6 +38,7 @@ input{
   min-height: 12%;
   text-align: center;
   font-weight: 1;
+  font-family: "ComicNeueL";
 }
 
 h1{
@@ -41,11 +47,31 @@ h1{
   font-style: normal;
 }
 
-.contenuDuFrigo{
-  padding-top: 8%;
+.button{
+  background-color: white;
+  border-style: dotted;
 }
 
-ul {
+.button:hover{
+  background-color: black;
+  color: white;
+}
+
+.contenuDuFrigo{
+  padding-top: 6%;
+}
+
+.contenuF{
+  background-image: url("images/icone-liste.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.contenuF:hover{
+  background-image: url("images/icone-liste_white.png");
+}
+ul{
   list-style-type: circle;
 }
 

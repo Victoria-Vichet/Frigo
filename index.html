@@ -14,7 +14,7 @@
     <div class="contenuDuFrigo">
       <h2>Contenu du frigo</h2>
       <p>
-        <input type="button" name="contenu" id="contenu" value="Afficher">
+        <input type="button" class="button contenuF" name="contenu" id="contenu" value="Afficher   ">
       </p>
         <ul id="contenuFrigo">
         </ul>
@@ -23,7 +23,7 @@
     <div class="ajouterNouveauProduit">
       <h2>Faire de nouvelles courses</h2>
       <form id="ajouter" >
-        <input type="text" id="produitAjout" placeholder="Mousse au chocolat">
+        <input type="text" id="produitAjout" placeholder="Mousse au chocolat" required>
         <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
         <input type="submit" value="Ajouter !">
       </form>
