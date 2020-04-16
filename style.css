@@ -1,7 +1,11 @@
-@font-face{
-  font-family: "Open Sans";
-  font-weight: 400;
-  src: url('font/open-sans') format('woff');
+@font-face {
+  font-family: "Reillex";
+  src: url(font/reillexpu.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "ComicNeue";
+  src: url(font/ComicNeue-Light.ttf) format('truetype');
 }
 
 body{
@@ -13,7 +17,7 @@ body,
 option,
 select,
 input{
-   font-family: "Arial", "Open Sans", "Ubuntu", "Arial";
+   font-family: "ComicNeue";
  }
 
 .header{
@@ -28,16 +32,17 @@ input{
   width: 100%;
   min-height: 12%;
   text-align: center;
+  font-weight: 1;
 }
 
 h1{
-  color: #A52A2A;
+  color: white;
   letter-spacing: -2px;
   font-style: normal;
 }
 
 .contenuDuFrigo{
-  padding-top: 12%;
+  padding-top: 8%;
 }
 
 ul {
@@ -45,8 +50,9 @@ ul {
 }
 
 footer{
-      width: 100%;
-			text-align: center;
-			color:#F08080;
-			background-color:#26627c;
-		}
+  font-family: "Reillex";
+  width: 100%;
+	text-align: center;
+	color:#F08080;
+	background-color:#26627c;
+}
