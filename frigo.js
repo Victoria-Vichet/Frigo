@@ -14,11 +14,11 @@ function listerFrigo(event){
     })
     .then( (dataJSON) => {
       let listeFinale = document.getElementById("contenuFrigo");
-      let res ="<tr><td>Produit</td><td>Quantité</td></tr>";
+      let res ="<table><tr><th>Produit</th><th>Quantité</th></tr>";
       for (let p of dataJSON) {
         res = res + "<tr><td>" + p.nom + "</td><td>" + p.qte + "</td></tr>";
       }
-      listeFinale.innerHTML = res;
+      listeFinale.innerHTML = res + "</table>";
     })
     .catch( (error) => {
       console.log(error)

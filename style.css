@@ -52,7 +52,15 @@ h1{
   font-style: normal;
 }
 
+table{border-style: solid;}
+th{font-family: "ComicNeue";}
+td{text-align: center;}
+
 ul{list-style-type: circle;}
+
+.contenuDuFrigo{padding-top: 6%;}
+.choix{margin-top: 3%;}
+.supprimerUnProduit{padding-bottom: 3%;}
 
 /* Buttons */
 .button{
@@ -70,12 +78,15 @@ ul{list-style-type: circle;}
   border-color: white;
 }
 
-.contenuDuFrigo{padding-top: 6%;}
-
 .contenuFO{background-image: url("images/icone-liste.png");}
-
 .contenuFO:hover{background-image: url("images/icone-liste_white.png");}
-
 .contenuFF{background-image: url("images/icone-frigo.png");}
-
 .contenuFF:hover{background-image: url("images/icone-frigo_white.png");}
+.contenuAjouterProduit{background-image: url("images/icone-caddie.png");}
+.contenuAjouterProduit:hover{background-image: url("images/icone-caddie_white.png");}
+.contenuRecherche{background-image: url("images/icone-recherche.png");}
+.contenuRecherche:hover{background-image: url("images/icone-recherche_white.png");}
+.contenuMangerUn{background-image: url("images/icone-couverts.png");}
+.contenuMangerUn:hover{background-image: url("images/icone-couverts_white.png");}
+.contenuMangerTout{background-image: url("images/icone-repas.png");}
+.contenuMangerTout:hover{background-image: url("images/icone-repas_white.png");}

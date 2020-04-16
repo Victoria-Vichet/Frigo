@@ -14,57 +14,57 @@
     <div class="contenuDuFrigo">
       <h2>Dans mon frigo il y a...</h2>
       <p>
-        <input type="button" class="button contenuFO" name="contenu" id="contenu" value="Ouvrir   ">&nbsp&nbsp&nbsp<input type="button" class="button contenuFF" id="contenuF" value="Fermer   ">
+        <input type="button" class="button contenuFO" name="contenu" id="contenu" value="Ouvrir&emsp;">&emsp;<input type="button" class="button contenuFF" id="contenuF" value="Fermer&emsp;">
       </p>
-        <table id="contenuFrigo"></table>
+      <p id="contenuFrigo"></p>
     </div>
 
-    <div class="ajouterNouveauProduit">
+    <div class="choix">
       <h2>Faire de nouvelles courses</h2>
       <form id="ajouter" >
         <input type="text" id="produitAjout" placeholder="Mousse au chocolat" required>
         <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="submit" class="button" value="Ajouter !">
+        <input type="submit" class="button contenuAjouterProduit" value="Acheter&emsp;">
       </form>
       <p id="produitAjoutValide"></p>
     </div>
 
-    <div class="rechercherProduits">
+    <div class="choix rechercherProduits">
       <h2>Qu'est ce qu'il y a dans mon frigo ?</h2>
       <form id="rechercher">
         <input type="text" id="produitRecherche" placeholder="Lait" required>
-        <input type="submit" class="button" value="Chercher...">
+        <input type="submit" class="button contenuRecherche" value="Chercher&emsp;">
       </form>
       <ul id="produitExistant">
       </ul>
     </div>
 
-    <div class="ajouterUnAUnProduit">
+    <div class="choix ajouterUnAUnProduit">
       <h2>Faire ses courses habituelles</h2>
       <p>
         <select id="produitHabAjout" name="produitsHabituels">
         </select>
-        <input type="button" id="ajoutUnProduit" class="button" value="Se faire livrer dans le frigo...">
+        <input type="button" id="ajoutUnProduit" class="button contenuAjouterProduit" value="Se faire livrer dans le frigo&emsp;">
       </p>
       <p id="produitHabAjoutValide"></p>
     </div>
 
-    <div class="supprimerUnAUnProduit">
+    <div class="choix supprimerUnAUnProduit">
     <h2>Petite faim</h2>
     <p>
       <select id="produitHabSupp" name="produitsHabituels">
       </select>
-      <input type="button" id="suppUnProduit" class="button" value="Manger un produit du frigo...">
+      <input type="button" id="suppUnProduit" class="button contenuMangerUn" value="Manger un produit du frigo&emsp;">
     </p>
     <p id="produitHabSuppValide"></p>
     </div>
 
-    <div class="supprimerUnProduit">
+    <div class="choix supprimerUnProduit">
     <h2>Grande faim</h2>
     <p>
       <select id="produitHabSuppTotal" name="produitsHabituels">
       </select>
-      <input type="button" id="suppUnProduitTotal" class="button" value="Dévaliser un produit du frigo...">
+      <input type="button" id="suppUnProduitTotal" class="button contenuMangerTout" value="Dévaliser un produit du frigo&emsp;">
     </p>
     <p id="produitHabSuppTotalValide"></p>
     </div>
