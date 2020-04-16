@@ -12,9 +12,9 @@
     </div>
 
     <div class="contenuDuFrigo">
-      <h2>Contenu du frigo</h2>
+      <h2>Dans mon frigo il y a...</h2>
       <p>
-        <input type="button" class="button contenuF" name="contenu" id="contenu" value="Afficher   ">
+        <input type="button" class="button contenuFO" name="contenu" id="contenu" value="Ouvrir   ">&nbsp&nbsp&nbsp<input type="button" class="button contenuFF" id="contenuF" value="Fermer   ">
       </p>
         <ul id="contenuFrigo">
         </ul>
@@ -25,7 +25,7 @@
       <form id="ajouter" >
         <input type="text" id="produitAjout" placeholder="Mousse au chocolat" required>
         <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="submit" value="Ajouter !">
+        <input type="submit" class="button" value="Ajouter !">
       </form>
       <p id="produitAjoutValide"></p>
     </div>
@@ -34,7 +34,7 @@
       <h2>Qu'est ce qu'il y a dans mon frigo ?</h2>
       <form id="rechercher">
         <input type="text" id="produitRecherche" placeholder="Lait" required>
-        <input type="submit" value="Chercher...">
+        <input type="submit" class="button" value="Chercher...">
       </form>
       <ul id="produitExistant">
       </ul>
@@ -45,7 +45,7 @@
       <p>
         <select id="produitHabAjout" name="produitsHabituels">
         </select>
-        <input type="button" id="ajoutUnProduit" value="Se faire livrer dans le frigo...">
+        <input type="button" id="ajoutUnProduit" class="button" value="Se faire livrer dans le frigo...">
       </p>
       <p id="produitHabAjoutValide"></p>
     </div>
@@ -55,7 +55,7 @@
     <p>
       <select id="produitHabSupp" name="produitsHabituels">
       </select>
-      <input type="button" id="suppUnProduit" value="Manger un produit du frigo...">
+      <input type="button" id="suppUnProduit" class="button" value="Manger un produit du frigo...">
     </p>
     <p id="produitHabSuppValide"></p>
     </div>
@@ -65,7 +65,7 @@
     <p>
       <select id="produitHabSuppTotal" name="produitsHabituels">
       </select>
-      <input type="button" id="suppUnProduitTotal" value="Dévaliser un produit du frigo...">
+      <input type="button" id="suppUnProduitTotal" class="button" value="Dévaliser un produit du frigo...">
     </p>
     <p id="produitHabSuppTotalValide"></p>
     </div>

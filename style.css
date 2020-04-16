@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
   font-family: "Reillex";
   src: url(font/reillexpu.ttf) format('truetype');
@@ -13,17 +14,13 @@
   src: url(font/ComicNeue-Regular.ttf) format('truetype');
 }
 
+/* General */
 body{
   background: #FFFACD;
   position: relative;
  }
 
-body,
-option,
-select,
-input{
-   font-family: "ComicNeue";
- }
+body,option,select,input{font-family: "ComicNeue", "Arial";}
 
 .header{
   background-color: black;
@@ -41,44 +38,44 @@ input{
   font-family: "ComicNeueL";
 }
 
+footer{
+  font-family: "Reillex";
+  width: 100%;
+ text-align: center;
+ color:#F08080;
+ background-color:#26627c;
+}
+
 h1{
   color: white;
   letter-spacing: -2px;
   font-style: normal;
 }
 
+ul{list-style-type: circle;}
+
+/* Buttons */
 .button{
   background-color: white;
   border-style: dotted;
-}
-
-.button:hover{
-  background-color: black;
-  color: white;
-}
-
-.contenuDuFrigo{
-  padding-top: 6%;
-}
-
-.contenuF{
-  background-image: url("images/icone-liste.png");
+  border-color: black;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 }
 
-.contenuF:hover{
-  background-image: url("images/icone-liste_white.png");
-}
-ul{
-  list-style-type: circle;
+.button:hover{
+  background-color: black;
+  color: white;
+  border-color: white;
 }
 
-footer{
-  font-family: "Reillex";
-  width: 100%;
-	text-align: center;
-	color:#F08080;
-	background-color:#26627c;
-}
+.contenuDuFrigo{padding-top: 6%;}
+
+.contenuFO{background-image: url("images/icone-liste.png");}
+
+.contenuFO:hover{background-image: url("images/icone-liste_white.png");}
+
+.contenuFF{background-image: url("images/icone-frigo.png");}
+
+.contenuFF:hover{background-image: url("images/icone-frigo_white.png");}

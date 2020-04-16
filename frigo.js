@@ -181,7 +181,6 @@ async function ajouterUnExistant(){
 let suppTotal = document.getElementById("suppUnProduitTotal");
 suppTotal.addEventListener("click", suppTotalProduit);
 
-
 function suppTotalProduit(){
     produitSuppId = document.getElementById("produitHabSuppTotal").value;
     let url3 = url + "/" + produitSuppId;
@@ -199,3 +198,10 @@ function suppTotalProduit(){
         })
         .catch( (error) => console.log(error))
     }
+
+/*fermer le frigo*/
+document.getElementById("contenuF").addEventListener("click", fermerFrigo);
+
+function fermerFrigo(event){
+    document.getElementById("contenuFrigo").innerHTML = "";    
+}
