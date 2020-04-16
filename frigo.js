@@ -14,9 +14,9 @@ function listerFrigo(event){
     })
     .then( (dataJSON) => {
       let listeFinale = document.getElementById("contenuFrigo");
-      let res ="";
+      let res ="<tr><td>Produit</td><td>Quantité</td></tr>";
       for (let p of dataJSON) {
-        res = res + "<li>" + p.nom + " [" + p.qte + "] </li>";
+        res = res + "<tr><td>" + p.nom + "</td><td>" + p.qte + "</td></tr>";
       }
       listeFinale.innerHTML = res;
     })
