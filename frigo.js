@@ -25,6 +25,13 @@ function listerFrigo(event){
     })
 }
 
+/*fermer le frigo*/
+document.getElementById("contenuF").addEventListener("click", fermerFrigo);
+
+function fermerFrigo(event){
+    document.getElementById("contenuFrigo").innerHTML = "";
+}
+
 /* Ajouter un nouveau produit au frigo */
 let ajoutProduit = document.getElementById("ajouter");
 ajoutProduit.addEventListener("submit", ajouterProduit);
@@ -40,7 +47,6 @@ function ajouterProduit(event){
    headers: myHeaders,
    body: JSON.stringify(produit)
   }
-  console.log(fetchOptions);
   fetch(url, fetchOptions)
     .then( (response) => {
       return response.json()
@@ -108,6 +114,7 @@ suppUn.addEventListener("click", enleverUnProduit);
 let produitConcerne = new Object();
 let val;
 let produitId;
+let sortie = 0;
 
 function ajouterUnProduit(event) {
   val = "plus";
@@ -147,9 +154,11 @@ async function ajouterUnExistant(){
     if (Object.is(val,"plus")) {
       produitFinal.qte = produitFinal.qte + 1;
     }
+
     if (Object.is(val,"moins")) {
       if (produitFinal.qte === 1) {
-        console.log("je repère");
+          sortie = 1;
+          suppTotalProduit(url + "/" + produitFinal.id, sortie);
       }
       produitFinal.qte = produitFinal.qte - 1;
     }
@@ -169,7 +178,7 @@ async function ajouterUnExistant(){
             let affichage = "1 " + produitConcerne.nom + " ajouté.e dans le frigo !";
             document.getElementById("produitHabAjoutValide").innerHTML = affichage;
           }
-          if (Object.is(val,"moins")) {
+          if ((Object.is(val,"moins")) && (sortie === 0)) {
             let affichage = "1 " + produitConcerne.nom + " supprimé.e dans le frigo !";
             document.getElementById("produitHabSuppValide").innerHTML = affichage;
           }
@@ -179,29 +188,27 @@ async function ajouterUnExistant(){
 
 /*Supprime totalement un produit*/
 let suppTotal = document.getElementById("suppUnProduitTotal");
-suppTotal.addEventListener("click", suppTotalProduit);
+suppTotal.addEventListener("click", initSuppTotalProduit);
 
-function suppTotalProduit(){
-    produitSuppId = document.getElementById("produitHabSuppTotal").value;
-    let url3 = url + "/" + produitSuppId;
+function initSuppTotalProduit(event) {
+  suppTotalProduit(url + "/" + document.getElementById("produitHabSuppTotal").value, 2);
+}
+
+function suppTotalProduit(urlS, aff){
     const fetchOptions = {
         method: 'DELETE',
     };
 
-    fetch(url3, fetchOptions)
+    fetch(urlS, fetchOptions)
         .then( (response) => {
             return response.json()
         })
         .then( (dataJSON) => {
-          let affichage = " Produit supprimé du frigo !";
-          document.getElementById("produitHabSuppTotalValide").innerHTML = affichage;
+          if (aff === 1) {
+            document.getElementById("produitHabSuppValide").innerHTML = "Il n'en restait plus qu'un !"
+          }else {
+            document.getElementById("produitHabSuppTotalValide").innerHTML = "Produit supprimé du frigo !";
+          }
         })
         .catch( (error) => console.log(error))
     }
-
-/*fermer le frigo*/
-document.getElementById("contenuF").addEventListener("click", fermerFrigo);
-
-function fermerFrigo(event){
-    document.getElementById("contenuFrigo").innerHTML = "";
-}
