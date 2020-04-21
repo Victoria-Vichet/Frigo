@@ -5,8 +5,9 @@ myHeaders.append("Content-Type", "application/json",);
 /* Lister le contenu du frigo */
 let contenuFrigo = document.getElementById("contenu");
 contenuFrigo.addEventListener("click", listerFrigo);
+let ouveture = 0;
 
-function listerFrigo(event){
+function listerFrigo(){
   let fetchOptions = {method: 'GET'};
   fetch(url, fetchOptions)
     .then( (response) => {
@@ -19,6 +20,7 @@ function listerFrigo(event){
         res = res + "<tr><td>" + p.nom + "</td><td>" + p.qte + "</td></tr>";
       }
       listeFinale.innerHTML = res + "</table>";
+      ouveture = 1;
     })
     .catch( (error) => {
       console.log(error)
@@ -54,6 +56,7 @@ function ajouterProduit(event){
     .then( (dataJSON) => {
       let affichage = produitQte + " " + produitNom + ".s ajouté.e.s dans le frigo !";
       document.getElementById("produitAjoutValide").innerHTML = affichage;
+      recharge();
     })
     .catch( (error) => console.log(error))
 }
@@ -74,7 +77,7 @@ function chercherProduit(event){
       let listeFinale = document.getElementById("produitExistant");
       let res ="";
       for (let p of dataJSON) {
-        res = res + "<li>" + p.nom + "</li>";
+        res = res + "<li> (" + p.qte + ") " + p.nom + "</li>";
       }
       if (res.length === 0) {
         res = "Aucun produit trouvé";
@@ -87,23 +90,26 @@ function chercherProduit(event){
 }
 
 /*Affiche la liste pour sélectionner*/
-let fetchOptions = { method: 'GET' };
-fetch(url, fetchOptions)
-  .then( (response) => {
-    return response.json()
-  })
-  .then( (dataJSON) => {
-    let resul =""
-    for (let v of dataJSON) {
-      resul = resul + "<option value=" + v.id + ">" + v.nom + "</option>";
-    }
-    document.getElementById("produitHabAjout").innerHTML = resul;
-    document.getElementById("produitHabSupp").innerHTML = resul;
-    document.getElementById("produitHabSuppTotal").innerHTML = resul;
-  })
-  .catch( (error) => {
-    console.log(error)
-  })
+afficherListe();
+function afficherListe() {
+  let fetchOptions = { method: 'GET' };
+  fetch(url, fetchOptions)
+    .then( (response) => {
+      return response.json()
+    })
+    .then( (dataJSON) => {
+      let resul =""
+      for (let v of dataJSON) {
+        resul = resul + "<option value=" + v.id + ">" + v.nom + "</option>";
+      }
+      document.getElementById("produitHabAjout").innerHTML = resul;
+      document.getElementById("produitHabSupp").innerHTML = resul;
+      document.getElementById("produitHabSuppTotal").innerHTML = resul;
+    })
+    .catch( (error) => {
+      console.log(error)
+    })
+}
 
 /*Ajoute 1 à un produit*/
 let ajoutUn = document.getElementById("ajoutUnProduit");
@@ -185,6 +191,7 @@ async function ajouterUnExistant(){
             let affichage = "1 " + produitConcerne.nom + " supprimé.e dans le frigo !";
             document.getElementById("produitHabSuppValide").innerHTML = affichage;
           }
+          recharge();
         })
         .catch( (error) => console.log(error))
 }
@@ -212,6 +219,15 @@ function suppTotalProduit(urlS, aff){
           }else {
             document.getElementById("produitHabSuppTotalValide").innerHTML = "Il n'y en a plus !";
           }
+          recharge();
         })
         .catch( (error) => console.log(error))
     }
+
+/*Rechargement*/
+function recharge() {
+  afficherListe();
+  if (ouveture === 1) {
+      listerFrigo();
+  }
+}
