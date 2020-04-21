@@ -24,19 +24,18 @@ body{
 body,option,select,input{font-family: "ComicNeue", "Arial";}
 
 .header{
+  position: sticky;
+  z-index: 1;
+  top: 0;
   background-color: black;
   background-image: url("images/iFrigo_white.png");
   background-repeat: no-repeat;
   background-size: contain;
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 12%;
   text-align: center;
+  color: white;
   font-weight: 1;
   font-family: "ComicNeueL";
+  border-radius: 10px 10px 10px 10px;
 }
 
 footer{
@@ -69,7 +68,15 @@ table{
   border-radius: 5px 5px 5px 5px;
 }
 
-.contenuDuFrigo{padding-top: 6%;}
+.contenuDuFrigo{
+  position: relative;
+  padding-left: 20px;
+  margin: 0 auto;
+  width: 250px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+}
+
 .choix{margin-top: 3%;}
 .supprimerUnProduit{padding-bottom: 3%;}
 
@@ -101,3 +108,5 @@ table{
 .contenuMangerUn:hover{background-image: url("images/icone-couverts_white.png");}
 .contenuMangerTout{background-image: url("images/icone-repas.png");}
 .contenuMangerTout:hover{background-image: url("images/icone-repas_white.png");}
+
+.boutonContenu{text-align: center;}

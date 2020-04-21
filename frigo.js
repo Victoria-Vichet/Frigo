@@ -76,6 +76,9 @@ function chercherProduit(event){
       for (let p of dataJSON) {
         res = res + "<li>" + p.nom + "</li>";
       }
+      if (res.length === 0) {
+        res = "Aucun produit trouvé";
+      }
       listeFinale.innerHTML = res;
     })
     .catch( (error) => {
@@ -207,7 +210,7 @@ function suppTotalProduit(urlS, aff){
           if (aff === 1) {
             document.getElementById("produitHabSuppValide").innerHTML = "Il n'en restait plus qu'un !"
           }else {
-            document.getElementById("produitHabSuppTotalValide").innerHTML = "Produit supprimé du frigo !";
+            document.getElementById("produitHabSuppTotalValide").innerHTML = "Il n'y en a plus !";
           }
         })
         .catch( (error) => console.log(error))
