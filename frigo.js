@@ -15,7 +15,7 @@ function listerFrigo(){
     })
     .then( (dataJSON) => {
       let listeFinale = document.getElementById("contenuFrigo");
-      let res ="<table><tr><th>Produit</th><th>Quantité</th></tr>";
+      let res ="<table><tr><th>Produit</th><th>&nbsp; Quantité &nbsp;</th></tr>";
       for (let p of dataJSON) {
         res = res + "<tr><td>" + p.nom + "</td><td>" + p.qte + "</td></tr>";
       }
