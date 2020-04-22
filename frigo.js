@@ -57,6 +57,7 @@ function ajouterProduit(event){
       let affichage = produitQte + " " + produitNom + ".s ajouté.e.s dans le frigo !";
       document.getElementById("produitAjoutValide").innerHTML = affichage;
       recharge();
+      document.getElementById("animationCourse").className = "animCoupleN";
     })
     .catch( (error) => console.log(error))
 }

@@ -16,7 +16,7 @@
 
 /* General */
 body{
-  background-image: linear-gradient(#7E5FE7, #BFB1EE);
+  background-image: radial-gradient(closest-side ellipse at center, #FA6E59, #E02D12);
   position: relative;
   padding-left: 8px;
  }
@@ -27,12 +27,12 @@ body,option,select,input{font-family: "ComicNeue", "Arial";}
   position: sticky;
   z-index: 1;
   top: 0;
-  background-color: black;
-  background-image: url("images/iFrigo_white.png");
+  background-color: #4897D8;
+  background-image: url("images/iFrigo.png");
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: 10px;
   text-align: center;
-  color: white;
   font-weight: 1;
   font-family: "ComicNeueL";
   border-radius: 10px 10px 10px 10px;
@@ -42,12 +42,12 @@ footer{
   font-family: "Reillex";
   width: 100%;
   text-align: center;
-  color:#F08080;
-  background-color:#26627c;
+  color:#FFBD5C;
+  background-color:#4897D8;
 }
 
 h1{
-  color: #B1EEDA;
+  color: black;
   letter-spacing: -2px;
   font-style: normal;
 }
@@ -57,14 +57,15 @@ th{font-family: "ComicNeue";}
 td{text-align: center;}
 ul{list-style-type: circle;}
 
-div:not(.header):not(.supprimerUnProduit){
+div:not(.header):not(.supprimerUnProduit):not(.faireCourses){
   border-bottom: dashed;
   border-spacing: 5;
   border-width: 3px;
 }
 
 table{
-  border: solid 10px;
+  border: solid 5px;
+  border-color: #FA6E59;
   border-radius: 5px 5px 5px 5px;
 }
 
@@ -72,7 +73,7 @@ table{
   position: relative;
   margin: 0 auto;
   width: 270px;
-  background-color: white;
+  background-color: #F8A055;
   border-radius: 5px 5px 5px 5px;
 }
 
@@ -81,18 +82,18 @@ table{
 
 /* Buttons */
 .button{
-  background-color: white;
+  background-color: #FFDB5C;
   border-style: dotted;
-  border-color: black;
+  border-color: #4897D8;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 }
 
 .button:hover{
-  background-color: black;
+  background-color: #4897D8;
   color: white;
-  border-color: white;
+  border-color: #FFDB5C;
 }
 
 .contenuFO{background-image: url("images/icone-liste.png");}
@@ -108,4 +109,35 @@ table{
 .contenuMangerTout{background-image: url("images/icone-repas.png");}
 .contenuMangerTout:hover{background-image: url("images/icone-repas_white.png");}
 
+input, select{background-color: #FFDB5C;}
+
 .boutonContenu{text-align: center;}
+
+/* Animation */
+
+@keyframes faireSesCourses {
+  50% {
+      transform: translateX(350px);
+  }
+}
+
+
+.anim{
+  background: url("images/icone-house.png") no-repeat left, url("images/icone-market.png") no-repeat right;
+  width: 500px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.animCouple{
+  position: relative;
+  left: 50px;
+}
+
+.animCoupleN{
+  position: relative;
+  left: 50px;
+  animation-name: faireSesCourses;
+  animation-duration: 5s;
+  animation-iteration-count: alternate;
+}
