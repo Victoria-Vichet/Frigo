@@ -77,14 +77,15 @@ function chercherProduit(event){
     })
     .then( (dataJSON) => {
       let listeFinale = document.getElementById("produitExistant");
-      let res ="";
+      let res ="<ul>";
       for (let p of dataJSON) {
         res = res + "<li> (" + p.qte + ") " + p.nom + "</li>";
       }
-      if (res.length === 0) {
-        res = "Aucun produit trouvé";
-      }
-      listeFinale.innerHTML = res;
+      res = res + "</ul>";
+      if (res.length === 9)
+      res = "Aucun produit trouvé ! ";
+      listeFinale.innerHTML = res + " <p class=\"resultatRecherche\"> <input type=\"button\" id=\"videListe\" value=\"Compris !\"> </p>";
+      document.getElementById("videListe").addEventListener("click", viderListe);
     })
     .catch( (error) => {
       console.log(error)
@@ -237,6 +238,10 @@ function recharge() {
   if (ouveture === 1) {
       listerFrigo();
   }
+}
+
+function viderListe() {
+    document.getElementById("produitExistant").innerHTML = "";
 }
 
 function rechargeAnim(event){
