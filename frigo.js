@@ -54,10 +54,11 @@ function ajouterProduit(event){
       return response.json()
     })
     .then( (dataJSON) => {
-      let affichage = produitQte + " " + produitNom + ".s ajouté.e.s dans le frigo !";
+      let affichage = produitQte + " " + produitNom + ".s ajouté.e.s dans le frigo ! <input type=\"button\" id=\"relanceAction\" value=\"Compris !\">";
       document.getElementById("produitAjoutValide").innerHTML = affichage;
-      recharge();
       document.getElementById("animationCourse").className = "animCoupleN";
+      recharge();
+      document.getElementById("relanceAction").addEventListener("click", rechargeAnim);
     })
     .catch( (error) => console.log(error))
 }
@@ -185,15 +186,16 @@ async function ajouterUnExistant(){
         })
         .then( (dataJSON) => {
           if (Object.is(val,"plus")) {
-            let affichage = "1 " + produitConcerne.nom + " ajouté.e dans le frigo !";
+            let affichage = "1 " + produitConcerne.nom + " ajouté.e dans le frigo ! <input type=\"button\" id=\"relanceAction\" value=\"Compris !\">";
             document.getElementById("produitHabAjoutValide").innerHTML = affichage;
             document.getElementById("animationCourse").className = "animCoupleN";
           }
           if ((Object.is(val,"moins")) && (sortie === 0)) {
-            let affichage = "1 " + produitConcerne.nom + " consommé.e ! Il en reste " + produitFinal.qte + " !";
+            let affichage = "1 " + produitConcerne.nom + " consommé.e ! Il en reste " + produitFinal.qte + " ! <input type=\"button\" id=\"relanceAction\" value=\"Compris !\">";
             document.getElementById("produitHabSuppValide").innerHTML = affichage;
-            document.getElementById("animationMange").className = "animMangeN"
+            document.getElementById("animationMange").className = "animMangeN";
           }
+          document.getElementById("relanceAction").addEventListener("click", rechargeAnim);
           recharge();
         })
         .catch( (error) => console.log(error))
@@ -218,12 +220,13 @@ function suppTotalProduit(urlS, aff, nomProduit){
         })
         .then( (dataJSON) => {
           if (aff === 1) {
-            document.getElementById("produitHabSuppValide").innerHTML = "Il n'en restait plus qu'un.e " + nomProduit + " !";
+            document.getElementById("produitHabSuppValide").innerHTML = "Il n'en restait plus qu'un.e " + nomProduit + " ! <input type=\"button\" id=\"relanceAction\" value=\"Compris !\">";
           }else {
-            document.getElementById("produitHabSuppTotalValide").innerHTML = "Il n'y en a plus !";
+            document.getElementById("produitHabSuppTotalValide").innerHTML = "Il n'y en a plus ! <input type=\"button\" id=\"relanceAction\" value=\"Compris !\">";
           }
-          document.getElementById("animationMange").className = "animMangeN"
+          document.getElementById("animationMange").className = "animMangeN";
           recharge();
+          document.getElementById("relanceAction").addEventListener("click", rechargeAnim);
         })
         .catch( (error) => console.log(error))
     }
@@ -234,4 +237,9 @@ function recharge() {
   if (ouveture === 1) {
       listerFrigo();
   }
+}
+
+function rechargeAnim(event){
+  document.getElementById("animationCourse").className = "animCouple";
+  document.getElementById("animationMange").className = "animMange";
 }
