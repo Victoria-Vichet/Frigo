@@ -242,4 +242,8 @@ function recharge() {
 function rechargeAnim(event){
   document.getElementById("animationCourse").className = "animCouple";
   document.getElementById("animationMange").className = "animMange";
+  document.getElementById("produitAjoutValide").innerHTML = "";
+  document.getElementById("produitHabAjoutValide").innerHTML = ""
+  document.getElementById("produitHabSuppValide").innerHTML = "";
+  document.getElementById("produitHabSuppTotalValide").innerHTML = "";
 }
