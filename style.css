@@ -36,13 +36,14 @@ body,option,select,input{font-family: "ComicNeue", "Arial";}
   font-weight: 1;
   font-family: "ComicNeueL";
   border-radius: 10px 10px 10px 10px;
+  height: 40px;
 }
 
 footer{
   font-family: "Reillex";
   width: 100%;
   text-align: center;
-  color:#FFBD5C;
+  color: black;
   background-color:#4897D8;
 }
 
@@ -77,6 +78,7 @@ table{
   width: 270px;
   background-color: #F8A055;
   border-radius: 5px 5px 5px 5px;
+  margin-top: 3%;
 }
 
 .rechercherProduits{
@@ -86,12 +88,12 @@ table{
   height: auto;
   background-color: #F8A055;
   border-radius: 5px 5px 5px 5px;
+  margin-top: 3%;
 }
 
 .achat{ display: flex;}
 
 .manger{
-  padding-bottom: 3%;
   display: flex;
 }
 
@@ -147,8 +149,8 @@ input, select{background-color: #FFDB5C;}
   }
 }
 
-
-.anim{
+.animCourse{
+  padding-top: 40px;
   background: url("images/icone-house.png") no-repeat left, url("images/icone-market.png") no-repeat right;
   width: 500px;
   height: 50px;
@@ -165,5 +167,44 @@ input, select{background-color: #FFDB5C;}
   left: 50px;
   animation-name: faireSesCourses;
   animation-duration: 5s;
+  animation-iteration-count: alternate;
+}
+
+
+@keyframes consommerProduit {
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75%{
+    transform: rotate(180deg);
+    transform: scale(0.75);
+  }
+
+  100%{
+    transform: scale(0);
+  }
+}
+.animManger{
+  padding-top: 10px;
+  background: url("images/icone-assiette.png") no-repeat center;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.animMange{
+  position: relative;
+  top: 35px;
+  left: 40px;
+}
+
+.animMangeN{
+  position: relative;
+  top: 35px;
+  left: 40px;
+  animation-name: consommerProduit;
+  animation-duration: 3s;
   animation-iteration-count: alternate;
 }

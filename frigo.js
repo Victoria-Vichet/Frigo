@@ -168,7 +168,7 @@ async function ajouterUnExistant(){
     if (Object.is(val,"moins")) {
       if (produitFinal.qte === 1) {
           sortie = 1;
-          suppTotalProduit(url + "/" + produitFinal.id, sortie);
+          suppTotalProduit(url + "/" + produitFinal.id, sortie, produitFinal.nom);
       }
       produitFinal.qte = produitFinal.qte - 1;
     }
@@ -190,8 +190,9 @@ async function ajouterUnExistant(){
             document.getElementById("animationCourse").className = "animCoupleN";
           }
           if ((Object.is(val,"moins")) && (sortie === 0)) {
-            let affichage = "1 " + produitConcerne.nom + " supprimé.e dans le frigo !";
+            let affichage = "1 " + produitConcerne.nom + " consommé.e ! Il en reste " + produitConcerne.qte + " !";
             document.getElementById("produitHabSuppValide").innerHTML = affichage;
+            document.getElementById("animationMange").className = "animMangeN"
           }
           recharge();
         })
@@ -203,10 +204,10 @@ let suppTotal = document.getElementById("suppUnProduitTotal");
 suppTotal.addEventListener("click", initSuppTotalProduit);
 
 function initSuppTotalProduit(event) {
-  suppTotalProduit(url + "/" + document.getElementById("produitHabSuppTotal").value, 2);
+  suppTotalProduit(url + "/" + document.getElementById("produitHabSuppTotal").value, 2, "");
 }
 
-function suppTotalProduit(urlS, aff){
+function suppTotalProduit(urlS, aff, nomProduit){
     const fetchOptions = {
         method: 'DELETE',
     };
@@ -217,10 +218,11 @@ function suppTotalProduit(urlS, aff){
         })
         .then( (dataJSON) => {
           if (aff === 1) {
-            document.getElementById("produitHabSuppValide").innerHTML = "Il n'en restait plus qu'un !"
+            document.getElementById("produitHabSuppValide").innerHTML = "Il n'en restait plus qu'un.e " + nomProduit + " !";
           }else {
             document.getElementById("produitHabSuppTotalValide").innerHTML = "Il n'y en a plus !";
           }
+          document.getElementById("animationMange").className = "animMangeN"
           recharge();
         })
         .catch( (error) => console.log(error))
