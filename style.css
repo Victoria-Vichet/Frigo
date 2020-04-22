@@ -58,7 +58,7 @@ th{font-family: "ComicNeue";}
 td{text-align: center;}
 ul{list-style-type: circle;}
 
-div:not(.header):not(.supprimerUnProduit):not(.achat){
+div:not(.header):not(.manger):not(.achat){
   border-bottom: dashed;
   border-width: 3px;
 }
@@ -68,6 +68,8 @@ table{
   border-color: #FA6E59;
   border-radius: 5px 5px 5px 5px;
 }
+
+.choix{margin-top: 3%;}
 
 .contenuDuFrigo{
   position: relative;
@@ -86,30 +88,23 @@ table{
   border-radius: 5px 5px 5px 5px;
 }
 
-.faireCourses{
-  position: relative;
-  margin: 0 auto;
-  width: 460px;
-  background-color: #F8A055;
-  border-radius: 5px 5px 5px 5px;
-  margin-right: 10px;
-}
+.achat{ display: flex;}
 
-.ajouterUnAUnProduit{
-  position: relative;
-  margin: 0 auto;
-  width: 460px;
-  background-color: #F8A055;
-  border-radius: 5px 5px 5px 5px;
-  margin-left: 10px;
-}
-
-.achat{
+.manger{
+  padding-bottom: 3%;
   display: flex;
 }
 
-.choix{margin-top: 3%;}
-.supprimerUnProduit{padding-bottom: 3%;}
+.case{
+  position: relative;
+  margin: 0 auto;
+  width: 460px;
+  background-color: #F8A055;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.caseGauche{margin-right: 10px;}
+.caseDroite{margin-left: 10px;}
 
 /* Buttons */
 .button{

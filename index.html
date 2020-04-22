@@ -32,7 +32,7 @@
     </div>
 
     <div class="achat choix">
-        <div class="faireCourses">
+        <div class="caseGauche case">
           <h2>Faire de nouvelles courses</h2>
           <form id="ajouter" class="boutonContenu">
             <input type="text" id="produitAjout" placeholder="Mousse au chocolat" required>
@@ -42,7 +42,7 @@
           <p id="produitAjoutValide"></p>
         </div>
 
-        <div class="ajouterUnAUnProduit">
+        <div class="caseDroite case">
           <h2>Faire ses courses habituelles</h2>
           <p class="boutonContenu">
             <select id="produitHabAjout" name="produitsHabituels">
@@ -57,24 +57,26 @@
         <img src="images/icone-couple.png" alt="couple" title="Couple"  id="animationCourse" class="animCouple">
     </div>
 
-    <div class="choix supprimerUnAUnProduit">
-    <h2>Petite faim</h2>
-    <p class="boutonContenu">
-      <select id="produitHabSupp" name="produitsHabituels">
-      </select>
-      <input type="button" id="suppUnProduit" class="button contenuMangerUn" value="Manger un produit du frigo&emsp;">
-    </p>
-    <p id="produitHabSuppValide"></p>
-    </div>
+    <div class="manger choix ">
+        <div class="caseGauche case">
+          <h2>Petite faim</h2>
+          <p class="boutonContenu">
+            <select id="produitHabSupp" name="produitsHabituels">
+            </select>
+            <input type="button" id="suppUnProduit" class="button contenuMangerUn" value="Manger un produit du frigo&emsp;">
+          </p>
+          <p id="produitHabSuppValide"></p>
+        </div>
 
-    <div class="choix supprimerUnProduit">
-    <h2>Grande faim</h2>
-    <p class="boutonContenu">
-      <select id="produitHabSuppTotal" name="produitsHabituels">
-      </select>
-      <input type="button" id="suppUnProduitTotal" class="button contenuMangerTout" value="Dévaliser un produit du frigo&emsp;">
-    </p>
-    <p id="produitHabSuppTotalValide"></p>
+        <div class="caseDroite case">
+          <h2>Grande faim</h2>
+          <p class="boutonContenu">
+            <select id="produitHabSuppTotal" name="produitsHabituels">
+            </select>
+            <input type="button" id="suppUnProduitTotal" class="button contenuMangerTout" value="Dévaliser un produit du frigo&emsp;">
+        </p>
+        <p id="produitHabSuppTotalValide"></p>
+        </div>
     </div>
 
     <footer>Technologies Web - ISIS - Victoria Vichet - FIE 3</footer>
