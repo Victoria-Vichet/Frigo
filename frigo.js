@@ -190,7 +190,7 @@ async function ajouterUnExistant(){
             document.getElementById("animationCourse").className = "animCoupleN";
           }
           if ((Object.is(val,"moins")) && (sortie === 0)) {
-            let affichage = "1 " + produitConcerne.nom + " consommé.e ! Il en reste " + produitConcerne.qte + " !";
+            let affichage = "1 " + produitConcerne.nom + " consommé.e ! Il en reste " + produitFinal.qte + " !";
             document.getElementById("produitHabSuppValide").innerHTML = affichage;
             document.getElementById("animationMange").className = "animMangeN"
           }
