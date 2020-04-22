@@ -58,9 +58,8 @@ th{font-family: "ComicNeue";}
 td{text-align: center;}
 ul{list-style-type: circle;}
 
-div:not(.header):not(.supprimerUnProduit){
+div:not(.header):not(.supprimerUnProduit):not(.achat){
   border-bottom: dashed;
-  border-spacing: 5;
   border-width: 3px;
 }
 
@@ -78,12 +77,35 @@ table{
   border-radius: 5px 5px 5px 5px;
 }
 
+.rechercherProduits{
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  height: auto;
+  background-color: #F8A055;
+  border-radius: 5px 5px 5px 5px;
+}
+
 .faireCourses{
   position: relative;
   margin: 0 auto;
-  width: 380px;
+  width: 460px;
   background-color: #F8A055;
   border-radius: 5px 5px 5px 5px;
+  margin-right: 10px;
+}
+
+.ajouterUnAUnProduit{
+  position: relative;
+  margin: 0 auto;
+  width: 460px;
+  background-color: #F8A055;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 10px;
+}
+
+.achat{
+  display: flex;
 }
 
 .choix{margin-top: 3%;}

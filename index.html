@@ -13,31 +13,17 @@
       <h1 id="titre">iFrigo</h1>
     </div>
 
-    <div class="choix contenuDuFrigo">
+    <div class="choix contenuDuFrigo boutonContenu">
       <h2>Dans mon frigo il y a...</h2>
-      <p class="boutonContenu">
+      <p>
         <input type="button" class="button contenuFO" name="contenu" id="contenu" value="Ouvrir&emsp;">&emsp;<input type="button" class="button contenuFF" id="contenuF" value="Fermer&emsp;">
       </p>
       <p id="contenuFrigo"></p>
     </div>
 
-    <div class="choix faireCourses">
-      <h2>Faire de nouvelles courses</h2>
-      <form id="ajouter" >
-        <input type="text" id="produitAjout" placeholder="Mousse au chocolat" required>
-        <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="submit" class="button contenuAjouterProduit" value="Acheter&emsp;">
-      </form>
-      <p id="produitAjoutValide"></p>
-    </div>
-
-    <div class="anim">
-        <img src="images/icone-couple.png" alt="couple" title="Couple"  id="animationCourse" class="animCouple">
-    </div>
-
     <div class="choix rechercherProduits">
       <h2>Qu'est-ce qu'il y a dans mon frigo ?</h2>
-      <form id="rechercher">
+      <form id="rechercher" class="boutonContenu">
         <input type="text" id="produitRecherche" placeholder="Lait" required>
         <input type="submit" class="button contenuRecherche" value="Chercher&emsp;">
       </form>
@@ -45,19 +31,35 @@
       </ul>
     </div>
 
-    <div class="choix ajouterUnAUnProduit">
-      <h2>Faire ses courses habituelles</h2>
-      <p>
-        <select id="produitHabAjout" name="produitsHabituels">
-        </select>
-        <input type="button" id="ajoutUnProduit" class="button contenuAjouterProduit" value="Se faire livrer dans le frigo&emsp;">
-      </p>
-      <p id="produitHabAjoutValide"></p>
+    <div class="achat choix">
+        <div class="faireCourses">
+          <h2>Faire de nouvelles courses</h2>
+          <form id="ajouter" class="boutonContenu">
+            <input type="text" id="produitAjout" placeholder="Mousse au chocolat" required>
+            <input type="number" id="quantiteAjout" min="1" step="1" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+            <input type="submit" class="button contenuAjouterProduit" value="Acheter&emsp;">
+          </form>
+          <p id="produitAjoutValide"></p>
+        </div>
+
+        <div class="ajouterUnAUnProduit">
+          <h2>Faire ses courses habituelles</h2>
+          <p class="boutonContenu">
+            <select id="produitHabAjout" name="produitsHabituels">
+            </select>
+            <input type="button" id="ajoutUnProduit" class="button contenuAjouterProduit" value="Se faire livrer dans le frigo&emsp;">
+          </p>
+          <p id="produitHabAjoutValide"></p>
+        </div>
+    </div>
+
+    <div class="anim">
+        <img src="images/icone-couple.png" alt="couple" title="Couple"  id="animationCourse" class="animCouple">
     </div>
 
     <div class="choix supprimerUnAUnProduit">
     <h2>Petite faim</h2>
-    <p>
+    <p class="boutonContenu">
       <select id="produitHabSupp" name="produitsHabituels">
       </select>
       <input type="button" id="suppUnProduit" class="button contenuMangerUn" value="Manger un produit du frigo&emsp;">
@@ -67,7 +69,7 @@
 
     <div class="choix supprimerUnProduit">
     <h2>Grande faim</h2>
-    <p>
+    <p class="boutonContenu">
       <select id="produitHabSuppTotal" name="produitsHabituels">
       </select>
       <input type="button" id="suppUnProduitTotal" class="button contenuMangerTout" value="Dévaliser un produit du frigo&emsp;">

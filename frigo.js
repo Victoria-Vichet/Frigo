@@ -187,6 +187,7 @@ async function ajouterUnExistant(){
           if (Object.is(val,"plus")) {
             let affichage = "1 " + produitConcerne.nom + " ajouté.e dans le frigo !";
             document.getElementById("produitHabAjoutValide").innerHTML = affichage;
+            document.getElementById("animationCourse").className = "animCoupleN";
           }
           if ((Object.is(val,"moins")) && (sortie === 0)) {
             let affichage = "1 " + produitConcerne.nom + " supprimé.e dans le frigo !";
