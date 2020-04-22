@@ -52,12 +52,13 @@ h1{
   font-style: normal;
 }
 
+h2{text-align: center;}
 p, form{margin-left: 8px}
 th{font-family: "ComicNeue";}
 td{text-align: center;}
 ul{list-style-type: circle;}
 
-div:not(.header):not(.supprimerUnProduit):not(.faireCourses){
+div:not(.header):not(.supprimerUnProduit){
   border-bottom: dashed;
   border-spacing: 5;
   border-width: 3px;
@@ -73,6 +74,14 @@ table{
   position: relative;
   margin: 0 auto;
   width: 270px;
+  background-color: #F8A055;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.faireCourses{
+  position: relative;
+  margin: 0 auto;
+  width: 380px;
   background-color: #F8A055;
   border-radius: 5px 5px 5px 5px;
 }
